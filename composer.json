@@ -1,9 +1,17 @@
 {
-    "name": "laravel/laravel",
+    "name": "kadlubowski/seedcms",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
-    "license": "MIT",
+    "description": "CMS like never before.",
+    "keywords": ["laravel", "cms", "seedcms"],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mateusz Kadłubowski",
+            "email": "kontakt@kadlubowski.net",
+            "homepage": "https://kadlubowski.net",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.0",
