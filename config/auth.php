@@ -2,6 +2,8 @@
 
 return [
 
+
+    'default_home' => 'admin.index',
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
