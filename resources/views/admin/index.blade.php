@@ -1,6 +1,6 @@
 @extends("admin.layout")
 
-@section("title", __('admin.dashboard.title'))
+@section("title", __('admin.index.title'))
 
 @section("content")
     <section class="card card-section">

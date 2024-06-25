@@ -1,0 +1,72 @@
+.icon-admin {
+    @include add-icon($fa-var-tachometer-alt);
+}
+.icon-users {
+    @include add-icon($fa-var-user-group);
+}
+.icon-return {
+    @include add-icon($fa-var-arrow-right-to-bracket);
+}
+.icon-settings {
+    @include add-icon($fa-var-cog);
+}
+.icon-circle-help {
+    @include add-icon($fa-var-circle-info);
+}
+.icon-more-menu {
+    @include add-icon($fa-var-ellipsis-vertical);
+}
+.icon-delete {
+    @include add-icon($fa-var-trash-can);
+}
+.icon-edit {
+    @include add-icon($fa-var-pen-to-square);
+}
+//<font-awesome-icon :icon="['fas', '']" />
+//.icon-pages {
+//    @include add-icon($fa-var-file);
+//}
+//
+//.icon-at {
+//    @include add-icon($fa-var-at);
+//}
+//
+//.icon-lock {
+//    @include add-icon($fa-var-lock);
+//}
+//
+
+//
+//.icon-down {
+//    @include add-icon($fa-var-chevron-down);
+//}
+//
+//.icon-left {
+//    @include add-icon($fa-var-chevron-left);
+//}
+//
+//.icon-gears {
+//    @include add-icon($fa-var-user-gear);
+//}
+//
+//.icon-power-off {
+//    @include add-icon($fa-var-power-off);
+//}
+//
+//.icon-user-edit {
+//    @include add-icon($fa-var-user-pen);
+//}
+//
+//.icon-filter {
+//    @include add-icon($fa-var-filter);
+//}
+//
+//.icon-user-add {
+//    @include add-icon($fa-var-user-plus);
+//}
+//
+
+
+//
+//chevron-right
+//angle-left

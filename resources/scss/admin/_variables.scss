@@ -1,0 +1,77 @@
+
+/*################################################ TYPOGRAFY ################################################*/
+
+$f-family-base: 'Open Sans', sans-serif;
+$f-size-h1: 1.4rem;
+$f-weight-medium: 500;
+$f-weight-semi-bold: 600;
+$f-weight-bold: 700;
+
+$c-text-header: #555;
+$c-text: #555;
+$c-link: #293241;
+$c-link-hover: #EE6C4D;
+/*################################################ COLORS ################################################*/
+
+$c-dark: #293241;
+$c-light: #3D5A80;
+$c-cta: #EE6C4D;
+$c-accent: #f5f5f5;
+$c-dropdown-link-hover: #e9ecef;
+
+//$color-bunting: #293241;
+//$color-orange: #EE6C4D;
+//$color-light-cyan: #E0FBFC;//
+//$color-regent-stblue: #98C1D9;//
+
+////$weight-light: 300;
+////$weight-regular: 400;
+//
+////$weight-semi-bold: 600;
+//
+
+//
+////$weight-extra-bold: 800;
+
+////
+
+
+//
+//$size-h1: 2rem;
+//
+//
+//%link-item {
+//    color: $link-color;
+//    text-decoration: none;
+//    transition: color ;
+//
+//    &:hover {
+//        color: $link-color-hover;
+//    }
+//}
+
+/*################################################ ANIMATIONS ################################################*/
+
+$transition-time-hover: 0.3s;
+
+.animate-spin {
+    &::after{
+        position: relative;
+        top: 4px;
+        content: "";
+        margin-left: 15px;
+        display: inline-block;
+        border: 3px solid rgba(245, 245, 245, 0.4);
+        border-top-color: #f5f5f5;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        animation: spin 1s linear infinite;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

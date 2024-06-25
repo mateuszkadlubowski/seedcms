@@ -2,10 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.index');
-Route::get('/text-confirmpassword', [AdminController::class, 'index'])->middleware('password.confirm');
 
 
 Route::middleware(['guest'])->controller(AuthController::class)->group(function () {
@@ -18,7 +16,6 @@ Route::middleware(['guest'])->controller(AuthController::class)->group(function 
     Route::get('/register', 'registerView')->name('register');
     Route::post('/register', 'register')->name('register');
 });
-
 
 Route::middleware(['auth'])->controller(AuthController::class)->group(function () {
     Route::get('/verify-email', 'verifyEmail')->name('verification.notice');
@@ -33,19 +30,22 @@ Route::middleware(['auth', 'verified'])->controller(AuthController::class)->grou
 });
 
 
-//Route::get('/reset-password', [AuthController::class, 'resetPasswordView'])->name('auth.reset-password');
-//Route::post('/update-password', [AuthController::class, 'updatePassword'])->name('auth.update-password');
+Route::prefix("admin")->name("admin.")->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/index', [AdminController::class, 'index'])->name('index');
+    Route::get('/users/list', [UserController::class, 'index'])->name('users.list');
+    Route::get('/users/edit/{id?}', [UserController::class, 'edit'])->name('users.edit');
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+    Route::get('/users/update/{id?}', [UserController::class, 'update'])->name('users.update');
+    Route::get('/users/delete/{id?}', [UserController::class, 'delete'])->name('users.delete');
+
+    Route::get('/settings', [SettingsController::class, 'edit'])->name('settings');
+});
+
+Route::get('/', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.index');
+Route::get('/text-confirmpassword', [AdminController::class, 'index'])->middleware('password.confirm');
 
 
-//Route::prefix("admin")->name("admin.")->middleware(['auth', 'verified'])->group(function () {
-//    Route::get('/', [AdminController::class, 'dashboard']);
-//    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-//
-//
-//
-//
-//
-//});
 
 //Route::get('/', function () {
 //    return redirect()->route('admin.dashboard');
@@ -65,17 +65,16 @@ Route::middleware(['auth', 'verified'])->controller(AuthController::class)->grou
 
 // Admin routes
 
-//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//
 //    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //
-//    Route::get('/users/list', [UserController::class, 'index'])->name('users.list');
-//    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-//    Route::get('/users/store', [UserController::class, 'store'])->name('users.store');
-//    Route::get('/users/edit/{id?}', [UserController::class, 'edit'])->name('users.edit');
-//    Route::get('/users/update/{id?}', [UserController::class, 'update'])->name('users.update');
-//    Route::get('/users/delete/{id?}', [UserController::class, 'delete'])->name('users.delete');
 //
-//    Route::get('/settings', [SettingsController::class, 'edit'])->name('settings');
+//
+//    Route::get('/users/store', [UserController::class, 'store'])->name('users.store');
+//
+
+//
+//
 //    Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
 //    // Route::get('/pages', [PagesController::class, 'index'])->name('pages');
 //    // Route::get('/pages/edit/{id}', [PagesController::class, 'edit'])->name('pages.edit');

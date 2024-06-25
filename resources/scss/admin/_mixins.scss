@@ -1,0 +1,13 @@
+@mixin add-icon($icon, $align: before) {
+    &:#{$align} {
+        content: fa-content($icon);
+        @extend %fa-icon;
+        @extend .fas;
+        text-align: center;
+        min-width: 20px;
+    }
+}
+
+@function rem($px){
+    @return calc($px / 16) * 1rem;
+}

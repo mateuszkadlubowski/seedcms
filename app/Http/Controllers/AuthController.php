@@ -42,6 +42,9 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
 
+            Auth::user()->last_login = now();
+            Auth::user()->save();
+
             return redirect()->intended(config('auth.default_home'));
         }
 

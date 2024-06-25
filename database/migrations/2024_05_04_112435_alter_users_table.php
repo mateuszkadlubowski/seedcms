@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('username', 100)->unique()->after('id');
             $table->string('name', 255)->nullable()->change();
             $table->string('avatar', 255)->nullable();
+            $table->timestamp('last_login')->nullable()->after('updated_at');
         });
     }
 
@@ -26,6 +27,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('username');
             $table->dropColumn('avatar');
+            $table->dropColumn('last_login');
         });
     }
 };

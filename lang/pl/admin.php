@@ -1,22 +1,52 @@
 <?php
 
 return [
-//    'usermenu' => [
-//        'profile' => 'Twój profil',
-//        'logout' => 'Wyloguj',
-//    ],
-//    'panel' => [
-//        'return' => 'Powrót do poprzedniej strony',
-//        'edit' => 'Edytuj',
-//        'delete' => 'Usuń',
-//        'yes' => 'Tak',
-//        'no' => 'Nie',
-//        'never' => 'Nigdy'
-//    ],
-//    'dashboard' => [
-//        'name' => 'Pulpit',
-//        'title' => 'Pulpit'
-//    ],
+    'panel' => [
+        'return' => 'Powrót do poprzedniej strony',
+        'edit' => 'Edytuj',
+        'delete' => 'Usuń',
+        'yes' => 'Tak',
+        'no' => 'Nie',
+        'never' => 'Nigdy'
+    ],
+    'usermenu' => [
+        'profile' => 'Twój profil',
+        'logout' => 'Wyloguj',
+    ],
+    'index' => [
+        'name' => 'Pulpit',
+        'title' => 'Pulpit'
+    ],
+    'users' => [
+        'name' => 'Użytkownicy',
+        'menu' => [
+            'list' => 'Lista użytkowników',
+            'edit' => 'Edycja użytkownika',
+            'create' => 'Dodaj użytkownika',
+        ],
+        //    'more_menu' => 'Opcje użytkownika',
+
+//        'btn' => [
+//            'add' => 'Dodaj nowego'
+//        ],
+//        'card' => [
+//            'basic_info' => 'Informacje podstawowe',
+//            'change_pass' => 'Zmiana hasła',
+//            'admin_zone' => 'Administracja',
+//        ],
+//        'table' => [
+//            'name' => 'Użytkownik',
+//            'email' => 'Email',
+//            'role' => 'Rola',
+//            'email_verified_at' => 'Zweryfikowany',
+//            'last_log' => 'Ostatnie logowanie',
+//            'created_at' => 'Utworzony',
+//            //            'group' => 'Grupa',
+//            //            'status' => 'Status',
+//        ]
+    ],
+
+
 //    'settings' => [
 //        'name' => 'Ustawienia',
 //        'title' => 'Ustawienia',
@@ -96,34 +126,7 @@ return [
 //        'profile_updated' => 'Twój profil został zaktualizowany.',
 //        'settings_updated' => 'Ustawienia zostały zaktualizowane.'
 //    ],
-//    'users' => [
-//        'name' => 'Użytkownicy',
-//        'menu' => [
-//            'list' => 'Lista użytkowników',
-//            'edit' => 'Edycja użytkownika',
-//            'create' => 'Dodaj użytkownika',
-//        ],
-//        'more_menu' => 'Opcje użytkownika',
-//
-////        'btn' => [
-////            'add' => 'Dodaj nowego'
-////        ],
-////        'card' => [
-////            'basic_info' => 'Informacje podstawowe',
-////            'change_pass' => 'Zmiana hasła',
-////            'admin_zone' => 'Administracja',
-////        ],
-//        'table' => [
-//            'name' => 'Użytkownik',
-//            'email' => 'Email',
-//            'role' => 'Rola',
-//            'email_verified_at' => 'Zweryfikowany',
-//            'last_log' => 'Ostatnie logowanie',
-//            'created_at' => 'Utworzony',
-//            //            'group' => 'Grupa',
-//            //            'status' => 'Status',
-//        ]
-//    ],
+
 //
 ////    'panel' => [
 ////        'return' => 'Powrót do',
