@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+@import "fontawesome6";
+
+/*################################################ VARIABLES ################################################*/
+$f-primary: 'Open Sans', sans-serif;
+
+$c-bg-page: #293241;
+$c-bg-form: #f5f5f5;
+$c-text: #555;
+$c-cta: #EE6C4D;
+
+$transition-time-hover: 0.3s;
+
+$size-h1: 2rem;
+
+/*################################################ ANIMATIONS ################################################*/
+
+.animate-spin {
+    &::after {
+        content: "";
+        margin-left: 15px;
+        display: inline-block;
+        border: 3px solid rgba(245, 245, 245, 0.4);
+        border-top-color: #f5f5f5;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        animation: spin 1s linear infinite;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*################################################ STYLES ################################################*/
+
+body {
+    font-family: $f-primary;
+}
+
+.auth-page {
+    background-color: $c-bg-page;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.auth-logo {
+    display: block;
+    margin-bottom: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.auth-panel {
+    max-width: 500px;
+    width: 100%;
+}
+
+.auth-form--login {
+    max-width: 400px;
+
+    .form-control {
+        transition: margin-left $transition-time-hover ease-in-out;
+
+        &:focus {
+            border-radius: 0.375rem !important;
+            box-shadow: unset;
+            margin-left: -42px !important;
+        }
+    }
+}
+
+.auth-panel-inner {
+    background-color: $c-bg-form;
+    padding-top: 40px;
+    border-radius: 0.25rem;
+
+    form {
+        padding: 20px 50px 50px 50px;
+        color: $c-text;
+
+
+        .form-check {
+            margin-bottom: 0;
+            margin-left: 2px;
+        }
+
+        .form-check-input {
+            margin-top: 4px;
+
+            &:checked {
+                background-color: $c-cta;
+                border-color: $c-cta;
+            }
+        }
+    }
+}
+
+.auth-title {
+    .title {
+        margin: 0 0 30px 0;
+        font-size: $size-h1;
+        text-align: center;
+        color: $c-text;
+        position: relative;
+        font-weight: 500;
+
+        &::after, &::before {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 22%;
+            background-color: #c2c2c2;
+            position: absolute;
+            top: 55%;
+        }
+
+        &::before {
+            left: 0;
+        }
+
+        &::after {
+            right: 0;
+        }
+    }
+
+    .title--long {
+        &:before, &:after {
+            width: 15%;
+        }
+    }
+
+    small {
+        text-align: center;
+        color: $c-text;
+        font-size: 1rem;
+        display: block;
+    }
+}
+
+.icon-person {
+    @extend %fa-icon;
+    @extend .fa-solid;
+    display: flex;
+    color: $c-bg-page;
+
+    &:before {
+        content: fa-content($fa-var-user);
+    }
+}
+
+.icon-lock {
+    @extend %fa-icon;
+    @extend .fa-solid;
+    display: flex;
+    color: $c-bg-page;
+
+    &:before {
+        content: fa-content($fa-var-lock);
+    }
+}
+
+.form-btns-wrap {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-cta {
+    background-color: $c-cta;
+    border-color: $c-cta;
+    color: #fff !important;
+    transition: all $transition-time-hover ease;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: darken($c-cta, 15%);
+    }
+}
+
+.auth-form-links {
+    display: flex;
+    padding-top: 15px;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        padding-top: 5px;
+        color: #98C1D9;
+        text-decoration: none;
+        transition: color $transition-time-hover ease;
+
+        &:hover {
+            color: $c-cta;
+        }
+    }
+}
+
+.cms-alert {
+    padding-left: 52px;
+    padding-right: 52px;
+}
+
+.auth-link {
+    color: #3D5A80;
+    text-decoration: none;
+    transition: color $transition-time-hover ease;
+
+    &:hover {
+        color: $c-cta;
+    }
+}
+
+.form-check-label:hover {
+    cursor: pointer;
+}

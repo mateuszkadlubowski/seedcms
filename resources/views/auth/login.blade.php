@@ -1,47 +1,59 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends("auth.layout")
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+@section("title", __('auth.login.title'))
+@section("content")
+    <section class="auth-panel auth-panel--login">
+        <a href="{{ url('/') }}" class="auth-logo">
+            <img src="{{ asset('logo.svg') }}" alt="{{ config('app.name') }} logo">
+        </a>
+        <div class="auth-panel-inner">
+            <div class="auth-title">
+                <h1 class="title">{{ __("auth.login.title") }}</h1>
+            </div>
+            @if ($errors->any())
+                <div class="alert alert-danger cms-alert mt-5" role="alert">
+                    {{ __('auth.failed') }}
+                </div>
+            @endif
+            @if (session('status'))
+                <div class="alert alert-success cms-alert mt-5" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <form method="POST" action="{{ route('login') }}" novalidate>
+                @csrf
+                <div class="input-group mb-3">
+                    <span class="input-group-text icon-person" id="email-addon"></span>
+                    <input type="text" name="username" id="username" class="form-control" autofocus
+                           placeholder="{{ __('auth.form.label.login_or_email') }}"
+                           aria-label="{{ __('auth.form.label.login_or_email') }}" aria-describedby="email-addon"
+                           required>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text icon-lock" id="pass-addon"></span>
+                    <input type="password" class="form-control" id="password" name="password"
+                           autocomplete="current-password" placeholder="{{ __('auth.form.label.password') }}"
+                           aria-label="{{ __('auth.form.label.password') }}" aria-describedby="pass-addon"
+                           required>
+                </div>
+                <div class="form-btns-wrap mt-3">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="remember_me" name="remember">
+                        <label class="form-check-label" for="remember_me">{{ __('auth.login.remember_me') }}</label>
+                    </div>
+                    <button type="submit" class="btn btn-cta">{{ __('auth.form.button.login') }}</button>
+                </div>
+            </form>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+        <div class="auth-form-links">
+            @if (config('admin.register_users'))
+                <a class="auth-link" href="{{ route('register') }}">
+                    {{ __('auth.form.link.to_register') }}
                 </a>
             @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+            <a class="auth-link" href="{{ route('password.request') }}">
+                {{ __('auth.form.link.to_forgot_password') }}
+            </a>
         </div>
-    </form>
-</x-guest-layout>
+    </section>
+@endsection
